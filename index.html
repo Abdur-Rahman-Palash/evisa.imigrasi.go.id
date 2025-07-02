@@ -1,139 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Status ITAS - Immigration</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Inter & Nunito Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 
+  <style>
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
       background: #fff;
     }
 
-    /* Header Styles */
+    /* Header */
     .header {
       background-color: #0c2d55;
       color: white;
-      padding: 10px 20px;
-    }
-
-    .header-wrapper {
+      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;
       flex-wrap: wrap;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
     }
 
-    .brand {
+    .header .logo-area {
       display: flex;
-      align-items: flex-end; /* Move logo + title slightly down */
-      gap: 12px;
-      flex-shrink: 1;
-      padding-top: 8px;
+      align-items: center;
+      gap: 15px;
     }
+    .header .logo-area img  {
+  height: 50px; /* Adjust to match your screenshot proportion */
+  width: auto;
+}
 
-    .logo {
-      height: 42px;
-      width: auto;
-    }
 
-    .brand-title {
-      font-size: 13px;
+    .header h1 {
+      font-size: 12px;
+      margin: 0;
       line-height: 1.3;
-      white-space: nowrap;
-    }
-
-    .menu-toggle {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 22px;
-      cursor: pointer;
-      display: none;
-    }
-
-    .nav-links {
-      display: flex;
-      justify-content: flex-end;
-      flex-wrap: nowrap;
-      gap: 10px;
-      margin-top: 4px;
-      align-items: flex-start; /* Move nav links slightly up */
-      padding-top: 4px;
     }
 
     .nav-links a {
       color: white;
       text-decoration: none;
-      font-size: 13px;
-      padding: 6px 12px;
-      border-radius: 4px;
-      background: rgba(255, 255, 255, 0.1);
-      white-space: nowrap;
+      margin-left: 20px;
+      font-weight: 500;
     }
 
     .sign-in {
-      background-color: #f57c00 !important;
+      background-color: #f57c00;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-left: 20px;
       font-weight: bold;
     }
 
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        margin-top: 15px;
-        padding-top: 0;
-        width: 100%;
-      }
-
-      body.nav-open .nav-links {
-        display: flex;
-      }
-
-      .brand-title {
-        font-size: 11px;
-      }
-    }
-
-    /* Main Content */
     .container {
-      width: 100%;
-      max-width: 1000px;
-      margin: 0 auto;
+      max-width: 960px;
+      margin: 40px auto;
       padding: 20px;
+      text-align: center;
     }
 
     .status-box {
       border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 20px;
-      background: #f9f9f9;
+      border-radius: 6px;
+      padding: 30px 20px;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
     .visa-image {
       width: 100px;
       height: 100px;
-      margin: 0 auto 15px;
+      margin: 0 auto 20px;
+     
       border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .visa-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 14px;
     }
 
     .valid-status {
@@ -141,130 +95,148 @@
       color: white;
       font-weight: bold;
       padding: 10px;
-      margin: 20px 0;
-      border-radius: 6px;
-      text-align: center;
-      font-size: 16px;
+      margin-bottom: 25px;
+      border-radius: 4px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 15px;
+      font-family: 'Nunito', sans-serif;
     }
 
     .grid-item {
       text-align: left;
       border: 1px solid #ddd;
-      border-radius: 6px;
-      padding: 12px 15px;
-      background: #ffffff;
-      font-family: 'Nunito', sans-serif;
+      border-radius: 4px;
+      padding: 10px 15px;
       font-size: 14px;
+      background: #fdfdfd;
     }
 
     .grid-item strong {
       display: block;
       color: #333;
-      margin-bottom: 4px;
-      font-weight: 700;
-    }
-
-    @media (min-width: 600px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 900px) {
-      .grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
+      margin-bottom: 5px;
     }
 
     /* Footer */
     footer {
-      margin-top: 50px;
+      margin-top: 100px;
       background-color: #0c2d55;
       color: white;
-      padding: 20px;
+      padding: 20px 30px;
       font-size: 13px;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      flex-wrap: wrap;
       align-items: center;
-      gap: 10px;
-      text-align: center;
+      font-family: 'Inter', sans-serif;
     }
 
     .socials a {
-      margin: 0 8px;
+      margin-left: 10px;
       color: white;
+      text-decoration: none;
       font-size: 16px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .nav-links, .socials {
+        margin-top: 10px;
+      }
     }
   </style>
 </head>
 <body>
 
   <!-- Header -->
-  <header class="header">
-    <div class="header-wrapper">
-      <div class="brand">
-        <img src="logo-2025.png" alt="Logo" class="logo" />
-        <div class="brand-title">
-          <strong>MINISTRY OF IMMIGRATION AND CORRECTIONS</strong><br />
-          DIRECTORATE GENERAL OF IMMIGRATION
-        </div>
-      </div>
-      <button class="menu-toggle" onclick="document.body.classList.toggle('nav-open')">
-        <i class="fas fa-bars"></i>
-      </button>
+  <div class="header">
+    <div class="logo-area">
+      <img src="logo-2025.png" alt="Logo">
+      <h1>
+        MINISTRY OF IMMIGRATION AND CORRECTIONS<br>
+        DIRECTORATE GENERAL OF IMMIGRATION
+      </h1>
     </div>
-
-    <nav class="nav-links">
+    <div class="nav-links">
       <a href="#">HOME</a>
       <a href="#">SERVICES</a>
       <a href="#">INFORMATION</a>
       <a href="#">CONTACT US</a>
       <a href="#" class="sign-in">Sign In</a>
-    </nav>
-  </header>
+    </div>
+  </div>
 
-  <!-- Main Content -->
+  <!-- Main Container -->
   <div class="container">
-    <h2 style="text-align: center;">Status ITAS</h2>
+    <h2>Status ITAS</h2>
     <div class="status-box">
+
+      <!-- Image Placeholder -->
       <div class="visa-image">
-        <img src="/001.jpg" alt="User Photo" />
+      <img height="100px" width="auto" src="/001.jpg" alt="Logo">
       </div>
 
+      <!-- VALID badge -->
       <div class="valid-status">VALID</div>
 
+      <!-- Information Grid -->
       <div class="grid">
-        <div class="grid-item"><strong>Permit Number</strong> E28A2C1300JD240133654</div>
-        <div class="grid-item"><strong>Valid Until</strong> 16-09-2025</div>
-        <div class="grid-item"><strong>Name</strong> RANJODH SINGH</div>
-        <div class="grid-item"><strong>Permit Type</strong> General Investment Limited Stay Permit</div>
-        <div class="grid-item"><strong>Visa Number</strong> 24E28A150876</div>
-        <div class="grid-item"><strong>Visa Type</strong> Type of Visa E28A</div>
-        <div class="grid-item"><strong>Main Purpose</strong> Investment, Business, or Government</div>
-        <div class="grid-item"><strong>Passport Number</strong> U5692063</div>
-        <div class="grid-item"><strong>Activity</strong> Investment</div>
+        <div class="grid-item">
+          <strong>Permit Number</strong>
+          E28A2C1300JD240133654
+        </div>
+        <div class="grid-item">
+          <strong>Valid Until</strong>
+         16-09-2025
+        </div>
+        <div class="grid-item">
+          <strong>Name</strong>
+         RANJODH SINGH
+        </div>
+        <div class="grid-item">
+          <strong>Permit Type</strong>
+          General Investment Limited Stay Permit
+        </div>
+        <div class="grid-item">
+          <strong>Visa Number</strong>
+          24E28A150876
+        </div>
+        <div class="grid-item">
+          <strong>Visa Type</strong>
+          Type of Visa E28A
+        </div>
+        <div class="grid-item">
+          <strong>Main Purpose</strong>
+          Investment, Business, or Government
+        </div>
+        <div class="grid-item">
+          <strong>Passport Number</strong>
+          U5692063
+        </div>
+        <div class="grid-item">
+          <strong>Activity</strong>
+          Investment
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Footer -->
   <footer>
-    <div>© Indonesian Immigration</div>
-    <div>HR. Rasuna Said Blok X-6, Kav 8, Kuningan, South Jakarta.</div>
-    <div class="socials">
-      Contact Us:
-      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
-    </div>
-  </footer>
+  <div>© Indonesian Immigration</div>
+  <div>HR. Rasuna Said Blok X-6, Kav 8, Kuningan, South Jakarta.</div>
+  <div class="socials">
+    Contact Us:
+    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
+</footer>
+
 
 </body>
 </html>
