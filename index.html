@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <title>Status ITAS - Immigration</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <!-- Inter & Nunito Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
@@ -24,41 +23,45 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      font-family: 'Inter', sans-serif;
       font-size: 12px;
     }
 
-    .header .logo-area {
+    .logo-area {
       display: flex;
       align-items: center;
       gap: 15px;
+      flex-wrap: wrap;
     }
-    .header .logo-area img  {
-  height: 50px; /* Adjust to match your screenshot proportion */
-  width: auto;
-}
 
+    .logo-area img {
+      height: 50px;
+      width: auto;
+    }
 
-    .header h1 {
+    .logo-area h1 {
       font-size: 12px;
       margin: 0;
       line-height: 1.3;
     }
 
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: flex-end;
+    }
+
     .nav-links a {
       color: white;
       text-decoration: none;
-      margin-left: 20px;
       font-weight: 500;
+      padding: 6px 12px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
     }
 
     .sign-in {
-      background-color: #f57c00;
-      color: white;
-      padding: 8px 16px;
-      border-radius: 4px;
-      text-decoration: none;
-      margin-left: 20px;
+      background-color: #f57c00 !important;
       font-weight: bold;
     }
 
@@ -81,13 +84,19 @@
       width: 100px;
       height: 100px;
       margin: 0 auto 20px;
-     
       border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #999;
       font-size: 14px;
+      overflow: hidden;
+    }
+
+    .visa-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .valid-status {
@@ -132,7 +141,6 @@
       justify-content: space-between;
       flex-wrap: wrap;
       align-items: center;
-      font-family: 'Inter', sans-serif;
     }
 
     .socials a {
@@ -142,9 +150,50 @@
       font-size: 16px;
     }
 
-    @media screen and (max-width: 600px) {
-      .nav-links, .socials {
+    /* Mobile Adjustments */
+    @media screen and (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .logo-area {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .logo-area h1 {
+        font-size: 11px;
+        text-align: center;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-top: 15px;
+        width: 100%;
+      }
+
+      .nav-links a {
+        width: 90%;
+        text-align: center;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+      }
+
+      .socials {
         margin-top: 10px;
+      }
+
+      .socials a {
+        margin: 0 5px;
       }
     }
   </style>
@@ -174,69 +223,38 @@
     <h2>Status ITAS</h2>
     <div class="status-box">
 
-      <!-- Image Placeholder -->
       <div class="visa-image">
-      <img height="100px" width="auto" src="/001.jpg" alt="Logo">
+        <img src="/001.jpg" alt="User Photo">
       </div>
 
-      <!-- VALID badge -->
       <div class="valid-status">VALID</div>
 
-      <!-- Information Grid -->
       <div class="grid">
-        <div class="grid-item">
-          <strong>Permit Number</strong>
-          E28A2C1300JD240133654
-        </div>
-        <div class="grid-item">
-          <strong>Valid Until</strong>
-         16-09-2025
-        </div>
-        <div class="grid-item">
-          <strong>Name</strong>
-         RANJODH SINGH
-        </div>
-        <div class="grid-item">
-          <strong>Permit Type</strong>
-          General Investment Limited Stay Permit
-        </div>
-        <div class="grid-item">
-          <strong>Visa Number</strong>
-          24E28A150876
-        </div>
-        <div class="grid-item">
-          <strong>Visa Type</strong>
-          Type of Visa E28A
-        </div>
-        <div class="grid-item">
-          <strong>Main Purpose</strong>
-          Investment, Business, or Government
-        </div>
-        <div class="grid-item">
-          <strong>Passport Number</strong>
-          U5692063
-        </div>
-        <div class="grid-item">
-          <strong>Activity</strong>
-          Investment
-        </div>
+        <div class="grid-item"><strong>Permit Number</strong> E28A2C1300JD240133654</div>
+        <div class="grid-item"><strong>Valid Until</strong> 16-09-2025</div>
+        <div class="grid-item"><strong>Name</strong> RANJODH SINGH</div>
+        <div class="grid-item"><strong>Permit Type</strong> General Investment Limited Stay Permit</div>
+        <div class="grid-item"><strong>Visa Number</strong> 24E28A150876</div>
+        <div class="grid-item"><strong>Visa Type</strong> Type of Visa E28A</div>
+        <div class="grid-item"><strong>Main Purpose</strong> Investment, Business, or Government</div>
+        <div class="grid-item"><strong>Passport Number</strong> U5692063</div>
+        <div class="grid-item"><strong>Activity</strong> Investment</div>
       </div>
     </div>
   </div>
 
   <!-- Footer -->
   <footer>
-  <div>© Indonesian Immigration</div>
-  <div>HR. Rasuna Said Blok X-6, Kav 8, Kuningan, South Jakarta.</div>
-  <div class="socials">
-    Contact Us:
-    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-    <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
-  </div>
-</footer>
-
+    <div>© Indonesian Immigration</div>
+    <div>HR. Rasuna Said Blok X-6, Kav 8, Kuningan, South Jakarta.</div>
+    <div class="socials">
+      Contact Us:
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+  </footer>
 
 </body>
 </html>
