@@ -97,8 +97,8 @@
     }
 
     .visa-image {
-      width: 100px;
-      height: 100px;
+      width: 130px;
+      aspect-ratio: 1 / 1;
       margin: 0 auto 20px;
       border-radius: 8px;
       overflow: hidden;
@@ -128,24 +128,31 @@
     }
 
     .grid-item {
-      text-align: left;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      padding: 10px 15px;
-      font-size: 20px;
-      background: #fdfdfd;
-       color: #11375C;
-      font-weight: 600;
-      line-height: 1.7;
-    }
+  text-align: left;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px 20px;   /* Increased padding for better spacing */
+  font-size: 16px;
+  background: #fdfdfd;
+  color: #11375C;
+  font-weight: 600;  /* Regular text */
+  line-height: 1.8;
+}
 
-    .grid-item strong {
-      display: block;
-      color: #11375C;
-      margin-bottom: 5px;
-       font-size: 12px;
-       line-height: 1.7;
-    }
+.grid-item strong {
+  display: block;
+  color: #11375C;
+  font-size: 14px;     /* Smaller font for labels */
+  font-weight: normal;   /* Bold label */
+  margin-bottom: 5px;  /* Space between label and value */
+}
+
+.grid-item span {
+  display: block;
+  font-size: 16px;     /* Regular font size for values */
+  font-weight: bold; /* Regular weight for value text */
+  color: #2e3a47;
+}
 
 
 
