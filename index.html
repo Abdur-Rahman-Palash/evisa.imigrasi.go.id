@@ -146,15 +146,17 @@
        font-size: 12px;
        line-height: 1.7;
     } */
- .grid-item strong {
-  display: block;
-  color: #333;
-  font-size: 16px;         /* optional: bigger font */
-  font-weight: 700;
-  padding-top: 10px;       /* ⬆️ space above text */
-  padding-bottom: 10px;    /* ⬇️ space below text */
-  line-height: 1.4;        /* smoother line height */
+.grid-item strong {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;          /* large text */
+  font-weight: 600;
+  padding: 20px 0;          /* space above and below */
+  height: 80px;             /* fixed height for alignment */
+  color: #003366;           /* darker blue if desired */
 }
+
 
     /* Footer */
     footer {
