@@ -53,7 +53,6 @@
       border: none;
       color: white;
       cursor: pointer;
-      right:30px;
     }
 
     .nav-links {
@@ -68,7 +67,7 @@
       text-decoration: none;
       font-weight: 500;
       padding: 6px 12px;
-     font-size: 12px;
+      background-color: rgba(255, 255, 255, 0.1);
       border-radius: 4px;
     }
 
@@ -79,11 +78,12 @@
 
     /* Main */
     .container {
-      max-width: 1020px;
+      max-width: 960px;
       margin: 40px auto;
       padding: 20px;
       text-align: center;
     }
+
     .status-box {
       border: 1px solid #ccc;
       border-radius: 6px;
@@ -93,8 +93,8 @@
     }
 
     .visa-image {
-      width: 120px;
-      height: 120px;
+      width: 100px;
+      height: 100px;
       margin: 0 auto 20px;
       border-radius: 8px;
       overflow: hidden;
@@ -157,6 +157,35 @@
       font-size: 16px;
     }
 
+    /* Mido Widget */
+    .mido-widget {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
+
+    .mido-btn {
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      color: #333;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+    }
+
+    .mido-btn img {
+      height: 32px;
+      width: 32px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
     /* Mobile Adjustments */
     @media (max-width: 768px) {
       .header {
@@ -172,7 +201,7 @@
       .menu-toggle {
         display: block;
         position: absolute;
-        right: 50px;
+        right: 15px;
         top: 20px;
         padding: 5px;
         font-size: 22px;
@@ -204,6 +233,11 @@
 
       .socials {
         margin-top: 10px;
+      }
+
+      .mido-btn {
+        font-size: 14px;
+        padding: 8px 12px;
       }
     }
   </style>
@@ -265,6 +299,14 @@
       <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
     </div>
   </footer>
+
+  <!-- Mido Button (bottom right) -->
+  <div class="mido-widget">
+    <button class="mido-btn">
+      <img src="/public/logo-livechat.png" alt="Mido" />
+      <span>Let's Ask Mido!</span>
+    </button>
+  </div>
 
 </body>
 </html>
